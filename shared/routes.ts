@@ -31,6 +31,16 @@ export const api = {
         401: errorSchemas.unauthorized,
       },
     },
+    signup: {
+      method: 'POST' as const,
+      path: '/api/signup',
+      input: insertUserSchema.omit({ role: true }),
+      responses: {
+        201: z.custom<typeof users.$inferSelect>(),
+        400: errorSchemas.validation,
+        409: z.object({ message: z.string() }),
+      },
+    },
     logout: {
       method: 'POST' as const,
       path: '/api/logout',

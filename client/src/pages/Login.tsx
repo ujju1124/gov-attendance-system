@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLogin } from "@/hooks/use-auth";
 import { useLocation } from "wouter";
-import { Building2, Loader2 } from "lucide-react";
+import { Building2, Loader2, ArrowLeft } from "lucide-react";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -43,9 +43,20 @@ export default function Login() {
       <div className="flex-1 flex items-center justify-center p-4">
         <div className="max-w-md w-full bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
           <div className="p-8">
+            <button
+              onClick={() => setLocation("/")}
+              className="flex items-center gap-2 text-secondary hover:text-secondary/80 mb-6 text-sm font-medium"
+              data-testid="button-back-home"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </button>
+
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 font-display">Portal Login</h3>
-              <p className="text-sm text-gray-500 mt-2">Enter your Employee ID to access the system</p>
+              <h3 className="text-2xl font-bold text-gray-900 font-display">पोर्टल लगइन</h3>
+              <p className="text-sm text-gray-600 mt-1">Portal Login</p>
+              <p className="text-sm text-gray-500 mt-2">सिस्टेम अ्याक्सेस गर्न आफ्नो कर्मचारी आईडी दर्ज गरुहोस्।</p>
+              <p className="text-xs text-gray-500">Enter your Employee ID to access the system</p>
             </div>
 
             <form onSubmit={handleLogin} className="space-y-6">
@@ -93,15 +104,25 @@ export default function Login() {
               </button>
             </form>
             
-            <div className="mt-8 pt-6 border-t border-gray-100 text-center">
-              <p className="text-xs text-gray-400">
+            <div className="mt-8 pt-6 border-t border-gray-100 text-center space-y-2">
+              <p className="text-xs text-gray-500">
+                खाता बनाएको छैन? Don't have an account?
+              </p>
+              <button
+                onClick={() => setLocation("/signup")}
+                className="text-secondary hover:text-secondary/80 underline font-medium text-sm"
+                data-testid="button-to-signup"
+              >
+                Sign Up Here - यहाँ साइन अप गरुहोस्
+              </button>
+              <p className="text-xs text-gray-400 pt-2">
                 Unauthorized access is strictly prohibited under the Electronic Transactions Act.
               </p>
             </div>
           </div>
           <div className="bg-gray-50 px-8 py-4 border-t border-gray-100 flex justify-between items-center text-xs text-gray-500">
              <span>v1.0.0 (Prototype)</span>
-             <a href="#" className="hover:text-primary underline">Help & Support</a>
+             <a href="#" className="hover:text-secondary underline">Help & Support</a>
           </div>
         </div>
       </div>

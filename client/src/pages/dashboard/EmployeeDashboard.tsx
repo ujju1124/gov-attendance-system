@@ -109,66 +109,20 @@ export default function EmployeeDashboard() {
           </div>
         </div>
 
-        {/* Recent History */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-100 bg-secondary/5">
-            <h2 className="text-lg font-bold text-secondary flex items-center gap-2">
-              <FileText className="w-5 h-5" />
-              हालैको रेकर्ड
-            </h2>
-          </div>
-          
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm text-left">
-              <thead className="text-xs text-gray-500 uppercase bg-gray-50/50 border-b border-gray-100">
-                <tr>
-                  <th className="px-6 py-3 font-semibold">Date</th>
-                  <th className="px-6 py-3 font-semibold">Time Marked</th>
-                  <th className="px-6 py-3 font-semibold">Status</th>
-                  <th className="px-6 py-3 font-semibold text-right">Verification</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {isLoadingHistory ? (
-                   <tr>
-                     <td colSpan={4} className="px-6 py-8 text-center text-gray-500">
-                       <div className="flex items-center justify-center gap-2">
-                         <Loader2 className="w-4 h-4 animate-spin" /> Loading records...
-                       </div>
-                     </td>
-                   </tr>
-                ) : attendanceHistory?.length === 0 ? (
-                  <tr>
-                    <td colSpan={4} className="px-6 py-8 text-center text-gray-500">
-                      No attendance records found.
-                    </td>
-                  </tr>
-                ) : (
-                  attendanceHistory?.slice(0, 5).map((record) => (
-                    <tr key={record.id} className="hover:bg-gray-50/50 transition-colors">
-                      <td className="px-6 py-4 font-medium text-gray-900">
-                        {format(new Date(record.date), "MMM d, yyyy")}
-                      </td>
-                      <td className="px-6 py-4 text-gray-500 font-mono text-xs">
-                        {record.timestamp ? format(new Date(record.timestamp), "h:mm:ss a") : "-"}
-                      </td>
-                      <td className="px-6 py-4">
-                        <StatusBadge status={record.status as "present" | "absent"} verified={record.verified} />
-                      </td>
-                      <td className="px-6 py-4 text-right">
-                        {record.verified ? (
-                          <span className="text-blue-600 font-medium text-xs flex items-center justify-end gap-1">
-                            <FileText className="w-3 h-3" /> Verified by Admin
-                          </span>
-                        ) : (
-                          <span className="text-gray-400 text-xs italic">Pending</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
+        {/* Quick Action */}
+        <div className="bg-secondary/5 border-2 border-secondary rounded-xl p-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-bold text-secondary">मेरो पूरा इतिहास हेर्नुहोस्</h3>
+              <p className="text-sm text-gray-600 mt-1">View your complete attendance history and verification status</p>
+            </div>
+            <a
+              href="/history"
+              className="px-6 py-2 bg-secondary text-white font-semibold rounded-lg hover:bg-secondary/90 transition-colors whitespace-nowrap"
+              data-testid="button-view-history"
+            >
+              सम्पूर्ण इतिहास → View All
+            </a>
           </div>
         </div>
       </div>

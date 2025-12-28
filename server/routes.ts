@@ -18,6 +18,31 @@ export async function registerRoutes(
     res.json(req.user);
   });
 
+  app.post(api.auth.signup.path, async (req, res) => {
+    try {
+      const input = api.auth.signup.input.parse(req.body);
+      
+      // Check if username already exists
+      const existing = await storage.getUserByUsername(input.username);
+      if (existing) {
+        return res.status(409).json({ message: "Employee ID already exists" });
+      }
+
+      // Create new employee user
+      const newUser = await storage.createUser({
+        ...input,
+        role: "employee",
+      });
+
+      res.status(201).json(newUser);
+    } catch (error: any) {
+      if (error.name === "ZodError") {
+        return res.status(400).json({ message: "Validation failed", errors: error.errors });
+      }
+      res.status(500).json({ message: "Signup failed" });
+    }
+  });
+
   app.post(api.auth.logout.path, (req, res, next) => {
     req.logout((err) => {
       if (err) return next(err);

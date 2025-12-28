@@ -7,9 +7,12 @@ import { useUser } from "@/hooks/use-auth";
 import { Loader2 } from "lucide-react";
 
 // Pages
+import Home from "@/pages/Home";
 import Login from "@/pages/Login";
+import Signup from "@/pages/Signup";
 import EmployeeDashboard from "@/pages/dashboard/EmployeeDashboard";
 import AdminDashboard from "@/pages/dashboard/AdminDashboard";
+import AttendanceHistory from "@/pages/AttendanceHistory";
 import NotFound from "@/pages/not-found";
 
 function ProtectedRoute({ 
@@ -51,15 +54,17 @@ function ProtectedRoute({
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Login} />
+      {/* Public Pages */}
+      <Route path="/" component={Home} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
       
       {/* Employee Routes */}
       <Route path="/dashboard">
         <ProtectedRoute component={EmployeeDashboard} />
       </Route>
       <Route path="/history">
-        {/* Re-using employee dashboard but focused on history could be done, or a separate page */}
-        <ProtectedRoute component={EmployeeDashboard} />
+        <ProtectedRoute component={AttendanceHistory} />
       </Route>
 
       {/* Admin Routes */}
