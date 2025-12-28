@@ -1,0 +1,156 @@
+🔧 Required Fixes & Improvements
+1️⃣ Dashboard & Attendance History Issue
+
+Currently, Dashboard and My Attendance History pages show the same content.
+
+Please separate them properly:
+
+Dashboard:
+
+Welcome message
+
+Employee profile summary
+
+“Mark Present” button
+
+My Attendance History:
+
+Table showing date, status, verification status
+
+2️⃣ Employee Signup (Important)
+
+Currently, there is only one fixed employee (e.g., Ram Bahadur).
+
+Add a simple signup page so that:
+
+New government clerks/employees can register themselves
+
+Fields:
+
+Full Name
+
+Username (Employee ID style)
+
+Department
+
+Designation
+
+Password
+
+After signup:
+
+Employee can log in
+
+Employee can mark attendance as Present
+
+Keep Admin logic unchanged
+
+Admin can still verify or mark employees as Absent
+
+3️⃣ Home Page (New Page)
+
+Create a proper Home Page that:
+
+Explains what the Smart Attendance System is
+
+Describes:
+
+Purpose of the system
+
+Benefits for government offices
+
+Transparency and accountability
+
+At the top navigation bar, include:
+
+Home
+
+Login
+
+Signup
+
+🎨 UI / Design (Very Important – Government Look)
+
+The site must look like a Nepali government portal
+
+Use:
+
+Nepal Government emblem (use placeholder image if needed)
+
+Formal color scheme:
+
+Dark blue / maroon / white / gray
+
+Simple, official typography
+
+Include Nepali Text (Sample):
+
+Header:
+नेपाल सरकार
+संघीय मामिला तथा सामान्य प्रशासन मन्त्रालय
+
+Footer:
+© नेपाल सरकार – कर्मचारी उपस्थिति प्रणाली (प्रोटोटाइप)
+
+Home page Nepali line example:
+
+“यो प्रणाली सरकारी कार्यालयका कर्मचारीहरूको उपस्थिति व्यवस्थापनलाई डिजिटल बनाउने उद्देश्यले विकास गरिएको हो।”
+
+🧑‍💼 User Roles (Keep Simple)
+Employee:
+
+Signup
+
+Login
+
+View dashboard
+
+Mark attendance as Present
+
+View attendance history
+
+Admin:
+
+Login
+
+View all employees
+
+View daily attendance
+
+Verify attendance
+
+Mark employee as Absent if necessary
+
+🛠 Tech Stack (Keep Same)
+
+Backend: Django + Django REST Framework
+
+Frontend: React
+
+Database: SQLite (prototype)
+
+Styling: Bootstrap
+
+📄 Documentation
+
+Update README.md to explain:
+
+System overview
+
+Employee self-attendance logic
+
+Admin verification role
+
+Why biometric/GPS is future scope
+
+⚠️ Important Notes
+
+Keep logic simple and functional
+
+Do NOT add biometric, GPS, or face recognition
+
+Code should be clean, structured, and commented
+
+This is an academic Phase-1 prototype
+
+The final system should look and behave like a Nepali government employee attendance portal, suitable for academic submission and demo.
