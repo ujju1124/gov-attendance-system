@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { useUser, useLogout } from "@/hooks/use-auth";
 import { Link, useLocation } from "wouter";
-import { LogOut, LayoutDashboard, History, Users, Menu, X, Building2 } from "lucide-react";
+import { LogOut, LayoutDashboard, History, Users, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -63,7 +63,7 @@ export function Layout({ children }: LayoutProps) {
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center border-2 border-secondary/30 shrink-0 shadow-sm overflow-hidden">
                   <img
-                    src="/client/public/images/Emblem_of_Nepal.svg.png"  // path to your emblem
+                    src="/images/Emblem_of_Nepal.svg.png"  // path to your emblem
                     alt="Nepal Government Emblem"
                     className="w-10 h-10 object-contain"
                   />
@@ -72,7 +72,7 @@ export function Layout({ children }: LayoutProps) {
                 <div className="flex flex-col">
                   <p className="text-xs text-secondary font-bold uppercase tracking-wider">संघीय मामिला तथा सामान्य प्रशासन मन्त्रालय</p>
                   <h2 className="text-sm md:text-base font-bold text-secondary leading-tight font-display">
-                    Ministry of Federal Affairs & General Administration
+                    Ministry of Federal Affairs And General Administration
                   </h2>
                 </div>
               </div>

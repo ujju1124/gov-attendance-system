@@ -32,7 +32,7 @@ export default function AdminDashboard() {
           <div>
             <h1 className="text-2xl font-bold text-secondary font-display">प्रशासन पोर्टल</h1>
             <p className="text-gray-600">Administration Portal</p>
-            <p className="text-gray-500 mt-1">कर्मचारी उपस्थिति र सत्यापन को निरीक्षण गरुहोस्।</p>
+            <p className="text-gray-500 mt-1">कर्मचारी उपस्थिति र सत्यापन को निरीक्षण गर्नुहोस्</p>
             <p className="text-gray-500">Oversee employee attendance and verification.</p>
           </div>
           

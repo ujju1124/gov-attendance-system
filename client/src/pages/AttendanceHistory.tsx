@@ -31,7 +31,7 @@ export default function AttendanceHistory() {
               <thead className="text-xs text-gray-500 uppercase bg-gray-50/50 border-b border-gray-100">
                 <tr>
                   <th className="px-6 py-3 font-semibold">मिति</th>
-                  <th className="px-6 py-3 font-semibold">समय दर्ज गरिएको</th>
+                  <th className="px-6 py-3 font-semibold">समय दर्जा गरिएको</th>
                   <th className="px-6 py-3 font-semibold">स्थिति</th>
                   <th className="px-6 py-3 font-semibold text-right">सत्यापन</th>
                 </tr>

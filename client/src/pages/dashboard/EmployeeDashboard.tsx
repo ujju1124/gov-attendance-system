@@ -26,7 +26,7 @@ export default function EmployeeDashboard() {
         <div>
           <h1 className="text-2xl font-bold text-secondary font-display">कर्मचारी ड्यासबोर्ड</h1>
           <p className="text-gray-600">Employee Dashboard</p>
-          <p className="text-gray-500 mt-1">स्वागतम, {user?.fullName}। यहाँ आफ्नो दैनिक उपस्थिति व्यवस्थापन गरुहोस्।</p>
+          <p className="text-gray-500 mt-1">स्वागतम, {user?.fullName}। यहाँ आफ्नो दैनिक उपस्थिति व्यवस्थापन गर्नुहोस्</p>
           <p className="text-gray-500">Welcome back, {user?.fullName}. Manage your daily attendance here.</p>
         </div>
 
@@ -48,9 +48,9 @@ export default function EmployeeDashboard() {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
                     <CalendarCheck className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-green-800 mb-2">उपस्थिति दर्ज गरिएको</h3>
+                  <h3 className="text-xl font-bold text-green-800 mb-2">उपस्थिति दर्जा गरिएको</h3>
                   <p className="text-green-700 mb-4">
-                    तपाईंले आज <span className="font-bold uppercase">{todayRecord.status}</span> रूपमा आफूलाई दर्ज गर्नुभएको छ।
+                    तपाईंले आज <span className="font-bold uppercase">{todayRecord.status}</span> रूपमा आफूलाई दर्जा गर्नुभएको छ।
                   </p>
                   <p className="text-xs text-green-600">
                     समय: {format(new Date(todayRecord.timestamp!), "h:mm a")}
@@ -60,7 +60,7 @@ export default function EmployeeDashboard() {
                 <div className="max-w-lg w-full space-y-6">
                   <div className="text-center space-y-2">
                     <p className="text-gray-700 text-lg font-medium">
-                      आज को उपस्थिति दर्ज गरुहोस्
+                      आज को उपस्थिति दर्जाा गरुहोस्
                     </p>
                     <p className="text-gray-600">
                       Please mark your attendance for today. Official working hours are 10:00 AM to 5:00 PM.
@@ -76,8 +76,8 @@ export default function EmployeeDashboard() {
                       <div className="w-12 h-12 rounded-full bg-gray-100 group-hover:bg-green-100 text-gray-500 group-hover:text-green-600 flex items-center justify-center mb-3 transition-colors">
                         <MapPin className="w-6 h-6" />
                       </div>
-                      <span className="font-bold text-gray-700 group-hover:text-green-800">मैं उपस्थित छु</span>
-                      <span className="text-xs text-gray-500 mt-1">पूरो दिन को उपस्थिति दर्ज गरुहोस्</span>
+                      <span className="font-bold text-gray-700 group-hover:text-green-800">म उपस्थित छु</span>
+                      <span className="text-xs text-gray-500 mt-1">पु्रा दिन को उपस्थिति दर्जा गरुहोस्</span>
                       
                       {markAttendance.isPending && (
                         <div className="absolute inset-0 bg-white/80 flex items-center justify-center rounded-xl">
@@ -94,8 +94,8 @@ export default function EmployeeDashboard() {
                       <div className="w-12 h-12 rounded-full bg-gray-100 group-hover:bg-red-100 text-gray-500 group-hover:text-red-600 flex items-center justify-center mb-3 transition-colors">
                         <UserCheck className="w-6 h-6" />
                       </div>
-                      <span className="font-bold text-gray-700 group-hover:text-red-800">मैं अनुपस्थित छु</span>
-                      <span className="text-xs text-gray-500 mt-1">अवकाश/अनुपस्थिति दर्ज गरुहोस्</span>
+                      <span className="font-bold text-gray-700 group-hover:text-red-800">म अनुपस्थित छु</span>
+                      <span className="text-xs text-gray-500 mt-1">अवकाश/अनुपस्थिति दर्जाा गरुहोस्</span>
                       
                       {markAttendance.isPending && (
                         <div className="absolute inset-0 bg-white/80 flex items-center justify-center rounded-xl">
