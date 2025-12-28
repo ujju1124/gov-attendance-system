@@ -2,9 +2,7 @@ import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import { Express } from "express";
 import session from "express-session";
-import connectPgSimple from "connect-pg-simple";
 import { storage } from "./storage";
-import { pool } from "./db";
 import { User } from "@shared/schema";
 
 declare global {
@@ -14,11 +12,8 @@ declare global {
 }
 
 export function setupAuth(app: Express) {
-  const pgSession = connectPgSimple(session);
-
   app.use(
     session({
-      store: new pgSession({ pool, createTableIfMissing: true }),
       secret: process.env.SESSION_SECRET || "super secret government code",
       resave: false,
       saveUninitialized: false,

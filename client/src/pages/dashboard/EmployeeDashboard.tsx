@@ -106,7 +106,7 @@ export default function EmployeeDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-100 bg-gray-50/50">
             <h2 className="text-lg font-bold text-gray-800 flex items-center gap-2">
-              <History className="w-5 h-5 text-secondary" />
+              <FileText className="w-5 h-5 text-secondary" />
               Recent Records
             </h2>
           </div>
