@@ -30,26 +30,28 @@ export default function AdminDashboard() {
       <div className="space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 font-display">Administration Portal</h1>
+            <h1 className="text-2xl font-bold text-secondary font-display">प्रशासन पोर्टल</h1>
+            <p className="text-gray-600">Administration Portal</p>
+            <p className="text-gray-500 mt-1">कर्मचारी उपस्थिति र सत्यापन को निरीक्षण गरुहोस्।</p>
             <p className="text-gray-500">Oversee employee attendance and verification.</p>
           </div>
           
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wide border border-blue-200">
-              Admin Access
+            <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs font-bold uppercase tracking-wide border border-secondary/30">
+              व्यवस्थापक पहुँच
             </span>
           </div>
         </div>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm official-border-top">
-            <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">Total Records</p>
-            <p className="text-3xl font-bold text-gray-900 mt-2 font-display">{allAttendance?.length || 0}</p>
+          <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm border-t-4 border-t-secondary">
+            <p className="text-sm font-medium text-secondary/70 uppercase tracking-wide">कुल रेकर्ड</p>
+            <p className="text-3xl font-bold text-secondary mt-2 font-display">{allAttendance?.length || 0}</p>
           </div>
           <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm border-t-4 border-t-green-600">
-            <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">Present Today</p>
-            <p className="text-3xl font-bold text-gray-900 mt-2 font-display">
+            <p className="text-sm font-medium text-green-700 uppercase tracking-wide">आज उपस्थित</p>
+            <p className="text-3xl font-bold text-green-700 mt-2 font-display">
               {allAttendance?.filter(r => 
                 r.status === 'present' && 
                 new Date(r.date).toDateString() === new Date().toDateString()
@@ -57,8 +59,8 @@ export default function AdminDashboard() {
             </p>
           </div>
           <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm border-t-4 border-t-orange-500">
-             <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">Pending Verification</p>
-             <p className="text-3xl font-bold text-gray-900 mt-2 font-display">
+             <p className="text-sm font-medium text-orange-700 uppercase tracking-wide">सत्यापन प्रतीक्षारत</p>
+             <p className="text-3xl font-bold text-orange-700 mt-2 font-display">
                {allAttendance?.filter(r => !r.verified).length || 0}
              </p>
           </div>
@@ -67,12 +69,12 @@ export default function AdminDashboard() {
         {/* Main Data Table */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
           {/* Toolbar */}
-          <div className="p-4 border-b border-gray-100 bg-gray-50/50 flex flex-col md:flex-row gap-4 justify-between items-center">
+          <div className="p-4 border-b border-gray-100 bg-secondary/5 flex flex-col md:flex-row gap-4 justify-between items-center">
              <div className="relative w-full md:w-96">
                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                <input 
                  type="text"
-                 placeholder="Search by name or ID..."
+                 placeholder="नाम वा आईडी द्वारा खोजुहोस्..."
                  className="w-full pl-10 pr-4 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                  value={search}
                  onChange={(e) => setSearch(e.target.value)}

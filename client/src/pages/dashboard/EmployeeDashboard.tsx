@@ -24,41 +24,48 @@ export default function EmployeeDashboard() {
     <Layout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 font-display">Employee Dashboard</h1>
+          <h1 className="text-2xl font-bold text-secondary font-display">कर्मचारी ड्यासबोर्ड</h1>
+          <p className="text-gray-600">Employee Dashboard</p>
+          <p className="text-gray-500 mt-1">स्वागतम, {user?.fullName}। यहाँ आफ्नो दैनिक उपस्थिति व्यवस्थापन गरुहोस्।</p>
           <p className="text-gray-500">Welcome back, {user?.fullName}. Manage your daily attendance here.</p>
         </div>
 
         {/* Action Card */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
-            <h2 className="text-lg font-bold text-gray-800 flex items-center gap-2">
-              <UserCheck className="w-5 h-5 text-secondary" />
-              Daily Actions
+          <div className="px-6 py-4 border-b border-gray-100 bg-secondary/5 flex justify-between items-center">
+            <h2 className="text-lg font-bold text-secondary flex items-center gap-2">
+              <UserCheck className="w-5 h-5" />
+              आज को क्रियाकलाप
             </h2>
-            <div className="text-sm text-gray-500 font-medium">
+            <div className="text-sm text-gray-600 font-medium">
               {format(new Date(), "EEEE, MMMM d, yyyy")}
             </div>
           </div>
           
           <div className="p-8 flex flex-col items-center justify-center text-center">
              {todayRecord ? (
-                <div className="bg-green-50 border border-green-200 rounded-xl p-8 max-w-md w-full">
+                <div className="bg-green-50 border-2 border-green-300 rounded-xl p-8 max-w-md w-full">
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
                     <CalendarCheck className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-green-800 mb-2">Attendance Marked</h3>
+                  <h3 className="text-xl font-bold text-green-800 mb-2">उपस्थिति दर्ज गरिएको</h3>
                   <p className="text-green-700 mb-4">
-                    You have marked yourself as <span className="font-bold uppercase">{todayRecord.status}</span> today.
+                    तपाईंले आज <span className="font-bold uppercase">{todayRecord.status}</span> रूपमा आफूलाई दर्ज गर्नुभएको छ।
                   </p>
                   <p className="text-xs text-green-600">
-                    Time: {format(new Date(todayRecord.timestamp!), "h:mm a")}
+                    समय: {format(new Date(todayRecord.timestamp!), "h:mm a")}
                   </p>
                 </div>
              ) : (
                 <div className="max-w-lg w-full space-y-6">
-                  <p className="text-gray-600 text-lg">
-                    Please mark your attendance for today. Official working hours are 10:00 AM to 5:00 PM.
-                  </p>
+                  <div className="text-center space-y-2">
+                    <p className="text-gray-700 text-lg font-medium">
+                      आज को उपस्थिति दर्ज गरुहोस्
+                    </p>
+                    <p className="text-gray-600">
+                      Please mark your attendance for today. Official working hours are 10:00 AM to 5:00 PM.
+                    </p>
+                  </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <button
@@ -69,8 +76,8 @@ export default function EmployeeDashboard() {
                       <div className="w-12 h-12 rounded-full bg-gray-100 group-hover:bg-green-100 text-gray-500 group-hover:text-green-600 flex items-center justify-center mb-3 transition-colors">
                         <MapPin className="w-6 h-6" />
                       </div>
-                      <span className="font-bold text-gray-700 group-hover:text-green-800">I am Present</span>
-                      <span className="text-xs text-gray-500 mt-1">Mark full day attendance</span>
+                      <span className="font-bold text-gray-700 group-hover:text-green-800">मैं उपस्थित छु</span>
+                      <span className="text-xs text-gray-500 mt-1">पूरो दिन को उपस्थिति दर्ज गरुहोस्</span>
                       
                       {markAttendance.isPending && (
                         <div className="absolute inset-0 bg-white/80 flex items-center justify-center rounded-xl">
@@ -87,8 +94,8 @@ export default function EmployeeDashboard() {
                       <div className="w-12 h-12 rounded-full bg-gray-100 group-hover:bg-red-100 text-gray-500 group-hover:text-red-600 flex items-center justify-center mb-3 transition-colors">
                         <UserCheck className="w-6 h-6" />
                       </div>
-                      <span className="font-bold text-gray-700 group-hover:text-red-800">I am Absent</span>
-                      <span className="text-xs text-gray-500 mt-1">Mark leave/absence</span>
+                      <span className="font-bold text-gray-700 group-hover:text-red-800">मैं अनुपस्थित छु</span>
+                      <span className="text-xs text-gray-500 mt-1">अवकाश/अनुपस्थिति दर्ज गरुहोस्</span>
                       
                       {markAttendance.isPending && (
                         <div className="absolute inset-0 bg-white/80 flex items-center justify-center rounded-xl">
@@ -104,10 +111,10 @@ export default function EmployeeDashboard() {
 
         {/* Recent History */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-100 bg-gray-50/50">
-            <h2 className="text-lg font-bold text-gray-800 flex items-center gap-2">
-              <FileText className="w-5 h-5 text-secondary" />
-              Recent Records
+          <div className="px-6 py-4 border-b border-gray-100 bg-secondary/5">
+            <h2 className="text-lg font-bold text-secondary flex items-center gap-2">
+              <FileText className="w-5 h-5" />
+              हालैको रेकर्ड
             </h2>
           </div>
           

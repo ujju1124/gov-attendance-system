@@ -36,8 +36,18 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-body">
       {/* Official Header */}
-      <header className="bg-white border-b border-gray-200 official-border-top sticky top-0 z-30">
+      <header className="bg-white border-b-4 border-secondary sticky top-0 z-30 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Top band with Nepal Government text */}
+          <div className="border-b border-gray-200 py-2">
+            <div className="flex justify-between items-center">
+              <div className="text-center flex-1">
+                <p className="text-xs font-bold text-secondary uppercase tracking-wider">नेपाल सरकार</p>
+                <p className="text-xs text-secondary/80">Government of Nepal</p>
+              </div>
+            </div>
+          </div>
+
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center gap-4">
               <div className="md:hidden">
@@ -51,29 +61,30 @@ export function Layout({ children }: LayoutProps) {
               
               {/* Emblem / Logo Area */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary/20 text-primary shrink-0">
-                   <Building2 className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center border-2 border-secondary/30 text-secondary shrink-0 shadow-sm">
+                   <Building2 className="w-7 h-7" />
                 </div>
                 <div className="flex flex-col">
-                  <h1 className="text-xs font-bold text-primary uppercase tracking-wider leading-tight">Government of Nepal</h1>
+                  <p className="text-xs text-secondary font-bold uppercase tracking-wider">संघीय मामिला तथा सामान्य प्रशासन मन्त्रालय</p>
                   <h2 className="text-sm md:text-base font-bold text-secondary leading-tight font-display">
-                    Ministry of Federal Affairs
+                    Ministry of Federal Affairs & General Administration
                   </h2>
                 </div>
               </div>
             </div>
 
             <div className="hidden md:flex items-center gap-6">
-              <div className="text-right">
+              <div className="text-right border-r border-gray-200 pr-6">
                 <p className="text-sm font-semibold text-gray-900">{user?.fullName}</p>
-                <p className="text-xs text-gray-500 uppercase tracking-wide">{user?.designation}</p>
+                <p className="text-xs text-gray-500 font-medium">{user?.designation}</p>
               </div>
               <button
                 onClick={() => logout()}
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-700 bg-red-50 hover:bg-red-100 rounded-lg transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-secondary hover:text-secondary/80 hover:bg-secondary/5 rounded transition-colors"
+                data-testid="button-logout"
               >
                 <LogOut className="h-4 w-4" />
-                Sign Out
+                Exit
               </button>
             </div>
           </div>
@@ -137,11 +148,19 @@ export function Layout({ children }: LayoutProps) {
       </div>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-6 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-sm text-gray-500 font-body">
-            © 2024 Government of Nepal – Attendance Management System (Prototype)
-          </p>
+      <footer className="bg-secondary/5 border-t-4 border-secondary py-8 mt-auto">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center space-y-2">
+            <p className="text-sm font-semibold text-secondary">
+              © नेपाल सरकार – कर्मचारी उपस्थिति प्रणाली (प्रोटोटाइप)
+            </p>
+            <p className="text-xs text-gray-600 font-body">
+              Government of Nepal – Employee Attendance System (Prototype)
+            </p>
+            <p className="text-xs text-gray-500 pt-2">
+              संघीय मामिला तथा सामान्य प्रशासन मन्त्रालय
+            </p>
+          </div>
         </div>
       </footer>
     </div>
