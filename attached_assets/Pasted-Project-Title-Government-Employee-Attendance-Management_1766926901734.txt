@@ -1,0 +1,150 @@
+Project Title: Government Employee Attendance Management System
+(Phase-1 Prototype – E-Governance Style)
+
+I want you to build a simple but functional full-stack web application as a Phase-1 prototype of a Government Employee Attendance Management System intended for use in Nepali government offices.
+
+This system represents a manual-to-digital transition model, where employees mark attendance through a secure web portal, and an admin verifies attendance records.
+
+Tech Stack:
+
+Backend: Django + Django REST Framework
+
+Frontend: React
+
+Database: SQLite (prototype use)
+
+Styling: Bootstrap (government portal style)
+
+UI / Design Guidelines:
+
+Government-style layout similar to Nepali e-governance portals
+
+Header text:
+“Government of Nepal”
+“Ministry of Federal Affairs & General Administration”
+
+Formal color scheme:
+
+Dark blue / maroon / white / gray
+
+Simple typography (official look)
+
+Footer text:
+
+“© Government of Nepal – Attendance Management System (Prototype)”
+
+Use free, royalty-free images related to:
+
+Government offices
+
+Public service
+
+Office environments
+
+Project Objective:
+
+Develop a working prototype that demonstrates:
+
+Digital attendance marking by employees
+
+Administrative verification of attendance
+
+Advanced features such as biometric authentication, GPS tracking, face recognition, and RFID must NOT be implemented and should be clearly mentioned as future enhancements.
+
+User Roles:
+1. Employee
+
+Logs in using username (employee ID style)
+
+Views basic profile:
+
+Name
+
+Department
+
+Designation
+
+Marks attendance as Present
+
+Views own attendance history
+
+2. Admin
+
+Views all employees
+
+Views daily attendance records
+
+Verifies attendance
+
+Can change attendance status from Present to Absent
+
+Backend Requirements (Django):
+Models:
+
+User
+
+username
+
+role (employee / admin)
+
+department
+
+designation
+
+Attendance
+
+employee
+
+date
+
+status (Present / Absent)
+
+verified_by_admin (Boolean)
+
+timestamp
+
+API Endpoints:
+
+Employee login
+
+Mark attendance
+
+View personal attendance
+
+Admin: view all attendance records
+
+Admin: update attendance status
+
+Enable Django Admin Panel for easy testing and data management.
+
+Frontend Requirements (React):
+
+Create the following pages with a government portal appearance:
+
+Login Page (username + role)
+
+Employee Dashboard
+
+Mark attendance button
+
+Attendance history table
+
+Admin Dashboard
+
+Employee list
+
+Attendance verification table
+
+Use tables, cards, and forms similar to official government systems.
+
+Documentation:
+
+Include a README.md explaining:
+
+System overview
+
+User roles
+
+Implemented features (Phase-1)
+
+Future scope (biometric, GPS, analytics, notifications)
